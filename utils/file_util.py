@@ -1,4 +1,3 @@
-
 class FileUtil:
 
     @classmethod
@@ -8,6 +7,6 @@ class FileUtil:
         :param path:
         :return:
         """
-        with open(path, 'r') as f:
+        with open(path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-            return lines;
+            return [each.strip() for each in lines]

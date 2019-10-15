@@ -3,10 +3,19 @@ class Ciyu:
     汉字基本类
     """
 
-    def __init__(self, _quanpin, _hanzi, _shouxie):
+    def __init__(self, _hanzi, _quanpin, _shouxie):
         self.quanpin = _quanpin
         self.hanzi = _hanzi
         self.shouxie = _shouxie
+
+    def __eq__(self, o: object) -> bool:
+        if isinstance(o, self.__class__):
+            return hash(self) == hash(o)
+        else:
+            return False
+
+    def __hash__(self) -> int:
+        return hash(self.hanzi)
 
 
 class Phrase:
