@@ -21,6 +21,15 @@ class PinyinUtil:
         """
         return lazy_pinyin(chin_words, style=Style.FIRST_LETTER, strict=False)
 
+    @classmethod
+    def get_init_pinyin(cls, chin_words):
+        """
+        返回词组的首写字母
+        :param chin_words: 汉语词组
+        :return:
+        """
+        return lazy_pinyin(chin_words, style=Style.INITIALS, strict=False)
+
 
 if __name__ == '__main__':
     lazy_pinyin_ = PinyinUtil.get_lazy_pinyin("还钱")

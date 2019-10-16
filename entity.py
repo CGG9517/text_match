@@ -19,8 +19,18 @@ class Ciyu:
 
 
 class Phrase:
-    def __init__(self, _line):
+    def __init__(self, _line, _pinyin):
         self.line = _line
+        self.pinyin = _pinyin
+
+    def __eq__(self, o: object) -> bool:
+        if isinstance(o, self.__class__):
+            return hash(self) == hash(o)
+        else:
+            return False
+
+    def __hash__(self) -> int:
+        return hash(self.line)
 
 
 if __name__ == '__main__':
